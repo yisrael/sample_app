@@ -119,4 +119,9 @@ describe User do
     before { @user.password = @user.password_confirmation = "a" * 5 }
     it { should be_invalid }
   end
+
+  describe "with upcase e-mail" do
+    before { @user.email.upcase! }
+    it { should be_valid }
+  end
 end
